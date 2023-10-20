@@ -4,7 +4,7 @@
 
 This project is designed to investigate and demonstrate techniques that could be used to extract emails containing "Notices of DMCA removal from Google Search" and to automate the sending of Google Forms to recover URLs that have been removed due to copyright issues. This project is strictly for research and educational purposes and should be used responsibly.
 
-![Diagrama](diagramas/esquema.png)
+![Diagrama](https://github.com/abelespinromero/dmca-auto-submitter/blob/main/diagrams/esquema.png)
 
 
 
