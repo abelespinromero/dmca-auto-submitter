@@ -66,7 +66,7 @@ Contributions are welcome. Open a pull request to propose changes or improvement
 
 ## Authors
 
-- [Author's Name](mailto:abel.espin.romero@gmail.com)
+- [Abel Espin Romero](mailto:abel.espin.romero@gmail.com)
 
 ## License
 
