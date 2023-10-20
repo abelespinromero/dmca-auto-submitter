@@ -2,7 +2,7 @@
 
 ## Description
 
-Este proyecto está diseñado para investigar y demostrar técnicas que podrían utilizarse para extraer correos electrónicos que contienen "Notices of DMCA removal from Google Search" y para automatizar el envío de formularios de Google para recuperar URLs eliminados por derechos de autor. Este proyecto es estrictamente para fines de investigación y educativos y debe usarse de manera responsable.
+This project is designed to investigate and demonstrate techniques that could be used to extract emails containing "Notices of DMCA removal from Google Search" and to automate the sending of Google Forms to recover URLs that have been removed due to copyright issues. This project is strictly for research and educational purposes and should be used responsibly.
 
 ## Table of Contents
 
@@ -65,4 +65,3 @@ Contributions are welcome. Open a pull request to propose changes or improvement
 ## License
 
 This project is under a specific license that permits educational and research use only.
-
