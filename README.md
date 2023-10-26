@@ -47,7 +47,7 @@ This script connects to an email mailbox using imap and searches for emails that
 This script is responsible for extracting URLs that are related to DMCA notices from the emails. It searches for specific patterns in the email body to identify and extract such URLs.
 
 ### `send_forms.py`
-This script is designed to automate the process of sending Google Forms to try and recover removed URLs. It uses Selenium to pre-fill and submit forms automatically.
+This script is designed to automate the process of sending Google Forms to try and recover removed URLs. It uses Selenium to pre-fill, recaptchav2 solver and submit forms automatically.
 
 ### `forms_data.py`
 This file contains data related to email used and the Google Forms that are to be sent. This could include question IDs, pre-filled answers, etc.
