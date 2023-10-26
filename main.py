@@ -42,11 +42,12 @@ def main(date_limit="daily", debug=False):
                     send_forms.send_form(driver)
                     try:
                         driver.find_element(By.XPATH, '//textarea[@id="g-recaptcha-response"]')
-                        #send_forms.resolve_recaptcha(driver, API_CAPTCHA_KEY, SITE_CAPTCHA_KEY, URL)
+                        send_forms.resolve_recaptcha(driver, API_CAPTCHA_KEY, SITE_CAPTCHA_KEY, URL)
                         send_forms.send_form(driver)
                     except:
                         pass
                     
+                    time.sleep(3)
                     submited,count = send_forms.check_if_submitted(driver, count)
 
                     if submited:

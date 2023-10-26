@@ -15,8 +15,8 @@ import pandas as pd
 def create_webdriver():
     # Create an Options object
     options = Options()
-    # Point to the profile directory
-    options.profile = 'C://Users//abelb//AppData//Roaming//Mozilla//Firefox//Profiles//5c2bxwdx.forms'
+    # Point to the profile directory to automatic logging
+    options.profile = 'C://Users//<your-user>//AppData//Roaming//Mozilla//Firefox//Profiles//<your-profile>' #Change
     # Set additional preferences
     options.set_preference("dom.webdriver.enabled", False)
     options.set_preference('useAutomationExtension', False)
@@ -25,16 +25,6 @@ def create_webdriver():
 
     return driver
 
-"""
-def create_webdriver():
-    service = Service("chromedriver.exe")  # Asegúrate de que "chromedriver.exe" esté en la ubicación correcta o proporciona la ruta completa
-    options = webdriver.ChromeOptions()
-    #options.add_argument('--incognito')
-    options.add_argument("user-data-dir=C://Users//abelb//AppData//Local//Google//Chrome//User Data//cripto")
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
-"""
 
 def open_form(driver, url):
     # Abrir la URL
@@ -105,26 +95,24 @@ def send_form(driver):
 def resolve_recaptcha(driver, api_key, site_key, url):
     capmonster = RecaptchaV2Task(api_key)
     task_id = capmonster.create_task(url, site_key)
-    
+    result = capmonster.join_task_result(task_id)
     solved=False
     while not solved:
-        result = capmonster.join_task_result(task_id)
-        if result.get("status") == "ready":
+        if result.get("gRecaptchaResponse"):
             g_recaptcha_response = result.get("gRecaptchaResponse")
             # Resuelve el reCAPTCHA
-            recaptcha_input = driver.find_element(By.XPATH, '//textarea[@id="g-recaptcha-response"]')
-            recaptcha_input.send_keys(g_recaptcha_response)
+            driver.execute_script("document.getElementById('g-recaptcha-response-1').innerHTML = "+"'" + g_recaptcha_response + "'")
             solved = True
         time.sleep(3)  # Esperar antes de verificar nuevamente
 
 def check_if_submitted(driver, count):
     try:
         _ = driver.find_element(By.XPATH, '//textarea[@id="g-recaptcha-response"]')
-        count+=1
         submited = False
         print("Form not submitted")
     except:
         print(f"Form {count} submitted")
+        count+=1
         submited = True
     return submited, count
 
